@@ -1,9 +1,14 @@
 <?php
     session_start(["use_strict_mode" => true]);
+    require('dbconnect.php');
     unset($_SESSION['message']);
     if (isset($_POST['login'])){
-        if ($_POST['login'] == 'kda'){
-            if ($_POST['password'] == '12345'){
+//        echo ("SELECT * FROM users WHERE email = ".$_POST['login']); die();
+        $result = $conn->query("SELECT * FROM users WHERE email = '".$_POST['login']."'");
+
+        if ($row = $result->fetch())
+        {
+            if (MD5($_POST["password"]) == $row['password']){
                 $_SESSION['username'] = $_POST['login'];
                 header("Location: authform.php");
                 die();
