@@ -1,5 +1,5 @@
 <?php
-    session_start(["use_strict_mode" => true]);
+
     if (isset($_SESSION['username'])) {
 
         ?>
