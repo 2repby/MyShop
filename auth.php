@@ -10,19 +10,19 @@
         {
             if (MD5($_POST["password"]) == $row['password']){
                 $_SESSION['username'] = $_POST['login'];
-                header("Location: index.php");
+                header("Location: index.php.old");
                 die();
             }
             else {
                 $_SESSION['message'] = 'Вы ввели неправильный пароль!';
-                header("Location: index.php");
+                header("Location: index.php.old");
                 die();
             }
 
         }
         else {
             $_SESSION['message'] = 'Вы ввели неправильный логин!';
-            header("Location: index.php");
+            header("Location: index.php.old");
             die();
         }
 
@@ -30,6 +30,6 @@
     if ($_GET['logout'] == 1){
         session_unset();
         $_SESSION['message'] = 'Вы успешно вышли из сиситемы';
-        header("Location: index.php");
+        header("Location: index.php.old");
         die();
     }

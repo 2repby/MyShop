@@ -9,7 +9,7 @@
 </head>
 <body>
 <ul>
-    <li><a href="index.php?page=items">Товары</a></li>
-    <li><a href="index.php?page=orders">Заказы</a></li>
+    <li><a href="index.php.old?page=items">Товары</a></li>
+    <li><a href="index.php.old?page=orders">Заказы</a></li>
 </ul>
 
