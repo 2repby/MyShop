@@ -15,18 +15,30 @@ function get_props() {
         if (xhr.status != 200) { // анализируем HTTP-статус ответа, если статус не 200, то произошла ошибка
             alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
         } else { // если всё прошло гладко, выводим результат
-            alert(`Готово, получили ${xhr.response} байт`); // response -- это ответ сервера
+            // alert(`Готово, получили ${xhr.response} байт`); // response -- это ответ сервера
+            var select_props = document.getElementById("select_props");
+            console.log(select_props);
+            select_props.innerHTML = "";
+            options = xhr.response.split(', ');
+            /* Insert the new ones from the array above */
+            for (var key in options)
+            {
+                var opt = document.createElement('option');
+                opt.text = options[key];
+                opt.value = key;
+                select_props.add(opt, null);
+            }
         }
     };
 
-    xhr.onprogress = function (event) {
-        if (event.lengthComputable) {
-            alert(`Получено ${event.loaded} из ${event.total} байт`);
-        } else {
-            alert(`Получено ${event.loaded} байт`); // если в ответе нет заголовка Content-Length
-        }
-
-    };
+    // xhr.onprogress = function (event) {
+    //     if (event.lengthComputable) {
+    //         alert(`Получено ${event.loaded} из ${event.total} байт`);
+    //     } else {
+    //         alert(`Получено ${event.loaded} байт`); // если в ответе нет заголовка Content-Length
+    //     }
+    //
+    // };
 
     xhr.onerror = function () {
         alert("Запрос не удался");

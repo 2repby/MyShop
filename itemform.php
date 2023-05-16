@@ -29,13 +29,15 @@ $result = $conn->query("SELECT * FROM categories");
 
     </select><br>
     Характеристики:<br>
-    <select name="features" multiple>
+    <select name="features" id="select_props" multiple>
         <option value="0">На гарантии
         <option value="1">Есть дополнительный акккумулятор
         <option value="2">Зарядной устройство в комплекте
         <option value="3">USB-кабель
         <option value="4" selected>Оригинальная упаковка
     </select><br>
+    Цена товара:<br>
+    <input name="price" type="text" size="20" maxlength="40" value="1000"><br>
     Комментарий:<br>
     <textarea name="comment" rows="5" cols="30">Комментарий</textarea><br>
     Имеется несколько экземпляров товара:
